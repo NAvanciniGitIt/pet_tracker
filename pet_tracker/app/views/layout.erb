@@ -10,20 +10,29 @@
     <title>PetTracker</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <link rel="stylesheet" href="/stylesheets/main.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+     <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </head>
   <body>
-    <div class="wrapper">
 
-        <%= yield %>
-
-      <footer class="branding">
-        <small>&copy; 2021 <strong>PetTracker</strong></small>
-      </footer>
+  <nav class="pink lighten-3">
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo center">Welcome to Pet Tracker</a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><a href="/signup">Sign Up</a></li>
+        <li><a href="#">Log In</a></li>
+        <li><a href="#">Log Out</a></li>
+      </ul>
     </div>
+  </nav>        
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<div class="container">
+        <%= yield %>
+</div>
+
     <!--[if lt IE 7]>
       <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
       <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
