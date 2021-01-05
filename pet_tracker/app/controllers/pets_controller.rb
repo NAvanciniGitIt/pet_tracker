@@ -30,9 +30,29 @@ class PetsController < ApplicationController
     end
   end
 
+  patch '/pet/:id' do
+    find_pet
+    redirect_if_pet_not_found
+    if @pet.update(params[:pet])
+      redirect "/pet/#{@pet.id}"
+    else
+      redirect "/pet/#{@pet.id}/edit"
+    end
+  end
+
+  delete '/pet/:id' do
+    find_pet
+    @pet.destroy if @pet
+    redirect '/pet'
+  end
+
   helpers do
     def find_pet
       @pet = Pet.find_by_id(params[:id])
+    end
+
+    def redirect_if_pet_not_found
+      redirect '/pet' unless @pet
     end
   end
 end
