@@ -1,4 +1,15 @@
 <h3><%= @pet.name %></h3>
-<p>Age: <%= @pet.age %></p>
+<p>Birth Date: <%= @pet.age%></p>
+<% now = Date.today.to_date %>
+<% before = @pet.age.to_date %>
+<% diff = (now - before).to_i %>
+<% @pet.age = (diff/365.25).to_i %>
+<p>Age: <%= @pet.age %></p> 
 <p>Breed: <%= @pet.breed %></p>
 <p>Weight: <%= @pet.weight %></p> 
+
+<form action="/pet/<%= @pet.id %>" method="post">
+  <a href="/pet/<%= @pet.id %>/edit" class="btn-small">Edit</a>  
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete Pet" class="btn-small red white-text">
+</form>
