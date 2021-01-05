@@ -1,0 +1,27 @@
+<h2>Add Your Pet!</h2>
+
+<form action="/pet" method="post">
+  <div class="input-field">
+          <input placeholder="Name" id="pet_name" name="pet[name]" type="text" class="validate">
+          <label for="name">Pet Name</label>
+        </div>
+  <div class="input-field">
+          <input type="integer" class="validate" name="pet[age]">
+          <label for="age">Pet Age</label>
+        </div>
+  <div class="input-field">
+          <input placeholder="Breed" id="pet_breed" name="pet[breed]" type="text" class="validate">
+          <label for="breed">Pet Breed/Type</label>
+        </div>
+  <div class="input-field">
+          <input type="integer" class="validate" name="pet[weight]">
+          <label for="weight">Pet Weight</label>
+        </div>
+       
+        <input type="submit" value="Add Pet" class="btn pink lighten-3">
+</form>
+ <script>
+ $(document).ready(function(){
+    $('.datepicker').datepicker();
+  });
+  </script>
