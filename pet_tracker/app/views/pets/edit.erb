@@ -1,0 +1,28 @@
+<h2>Edit <%= @pet.name%>!</h2>
+
+<form action="/pet/<%= @pet.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <div class="input-field">
+          <input placeholder="Name" id="pet_name" name="pet[name]" type="text" class="validate" value="<%= @pet.name %>">
+          <label for="name">Pet Name</label>
+        </div>
+  <div class="input-field">
+          <input type="date" class="text" name="pet[age]" value="<%=@pet.age %>">
+          <label for="age">Pet Age</label>
+        </div>
+  <div class="input-field">
+          <input placeholder="Breed" id="pet_breed" name="pet[breed]" type="text" class="validate" value="<%=@pet.breed %>">
+          <label for="breed">Pet Breed/Type</label>
+        </div>
+  <div class="input-field">
+          <input type="text" class="validate" name="pet[weight]" value="<%=@pet.weight %>">
+          <label for="weight">Pet Weight</label>
+        </div>
+       
+        <input type="submit" value="Update Pet" class="btn pink lighten-3">
+</form>
+ <script>
+ $(document).ready(function(){
+    $('.datepicker').datepicker();
+  });
+  </script>
