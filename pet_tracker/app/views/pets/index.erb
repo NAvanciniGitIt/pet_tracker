@@ -1,5 +1,5 @@
-<h3> Your Pets! </h2> 
-
+<h3><center>Your Pets!</center></h2> 
+<h5><%@pet = Pet.all.count%> <%= "You have #{@pet} number of pets."%></h5>
 <ul>
   <% @pets.each do |pet| %>
     <li><a href="/pet/<%= pet.id %>"><%= pet.name %></li>
