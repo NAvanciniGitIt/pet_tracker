@@ -2,3 +2,15 @@ ENV["SINATRA_ENV"] ||= "development"
 
 require_relative './config/environment'
 require 'sinatra/activerecord/rake'
+
+desc "Drop databases"
+task :drop do
+  puts "dumping data...."
+  system "rm db/schema.rb"
+end
+
+desc "Migrates Databases"
+task :migrations do 
+  puts "migrating databases...."
+  system "rake db:migrate"
+end
