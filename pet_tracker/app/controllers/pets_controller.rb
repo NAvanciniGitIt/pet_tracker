@@ -3,6 +3,7 @@ class PetsController < ApplicationController
 
   get '/pet' do
     @pets = Pet.all
+    @pet = Pet.find_by_id(session[:pet_id])
     erb :'/pets/index'
   end
 
@@ -12,6 +13,8 @@ class PetsController < ApplicationController
 
   get '/pet/:id' do
       find_pet
+      session[:pet_id] = @pet.id if @pet
+      redirect_if_pet_not_found
     erb :'/pets/show'
   end
 
