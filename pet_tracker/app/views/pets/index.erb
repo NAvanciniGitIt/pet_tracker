@@ -1,5 +1,9 @@
 <h3><center>Your Pets!</center></h2> 
-<h5><%@pet = Pet.all.count%> <%= "You have #{@pet} number of pets."%></h5>
+
+<h5><%="You have #{@pets.count} pet(s)."%></h5>
+
+<p>Recently Viewed: <%= @pet ? @pet.name : "Haven't viewed any pets." %></p>
+
 <ul>
   <% @pets.each do |pet| %>
     <li><a href="/pet/<%= pet.id %>"><%= pet.name %></li>
