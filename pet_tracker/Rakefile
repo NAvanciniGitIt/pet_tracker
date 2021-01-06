@@ -6,7 +6,7 @@ require 'sinatra/activerecord/rake'
 desc "Drop databases"
 task :drop do
   puts "dumping data...."
-  system "rm db/schema.rb && development.sqlite"
+  system "rm db/schema.rb && rm db/development.sqlite"
 end
 
 desc "Migrates Databases"
