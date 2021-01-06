@@ -35,6 +35,7 @@ class PetsController < ApplicationController
     if pet.save
       redirect '/pet'
     else
+      flash[:errors] = pet.errors.full_messages
       redirect '/pet/new' 
     end
   end
