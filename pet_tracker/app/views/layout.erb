@@ -22,11 +22,14 @@
     <div class="nav-wrapper">
       <a href="/" class="brand-logo center">Pet Tracker</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="/signup">Sign Up</a></li>
-        <li><a href="#">Log In</a></li>
-        <li><a href="#">Log Out</a></li>
-        <li><a href="/pet">View Pets</a></li>
-        <li><a href="/pet/new">Add Pet</a></li>
+        <% if !is_logged_in? %>
+          <li><a href="/signup">Sign Up</a></li>
+          <li><a href="/login">Log In</a></li>
+        <% else %>
+          <li><a href="/logout">Log Out</a></li>
+          <li><a href="/pet">View Pets</a></li>
+          <li><a href="/pet/new">Add Pet</a></li>
+        <% end %>
       </ul>
     </div>
   </nav>        
