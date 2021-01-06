@@ -5,6 +5,7 @@ class SessionController < ApplicationController
   end
 
   post '/signup' do
+    redirect_if_logged_in
     user = User.new(params[:user]) 
     if user.save
       session[:user_id]  = user.id
@@ -15,6 +16,7 @@ class SessionController < ApplicationController
   end
 
   get '/login' do
+    redirect_if_logged_in
     erb :'/sessions/login'
   end
 
