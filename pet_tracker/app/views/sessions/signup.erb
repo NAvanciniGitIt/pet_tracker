@@ -1,0 +1,27 @@
+<center><h2>Create Your Account!</h2>
+<form action="/signup" method="post">
+  <div class="input-field">
+    <input type="text" name="user[username]" id="username">
+    <label for="username">Username</label>
+  </div>
+  <div class="input-field">
+          <input type="text" class="datepicker" name="user[birthday]">
+          <label for="birthday">Date of Birth</label>
+        </div>
+  <div class="input-field">
+    <input type="text" name="user[email]" id="email">
+    <label for="email">E-Mail</label>
+  </div>
+  <div class="input-field">
+    <input type="password" name="user[password]" id="password">
+    <label for="password">Password</label>
+  </div>
+</center>
+  <input type="submit" value="Submit" class="btn-small pink lighten-3">
+</form>
+
+<script>
+$(document).ready(function(){
+    $('.datepicker').datepicker();
+  });
+</script>
