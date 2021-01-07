@@ -8,7 +8,15 @@
   </head>
 <body>
   <center>
+  <% if !!current_user %>
+  <h2><%= "Welcome #{current_user.name}!" %></h2>
+  <p>How are your pets today?</p>
+  <% else %>
   <h2>Welcome to Pet Tracker! </h2>
-  <p>A convenient place to store all of the information on your furry friends!</p></center>
+    <p>A convenient place to store any information on your furry/scaley friends!</p>
+    <% end %>
+  </center>
+  <div class="container">
+  <center><img src="/images/pettrackertransparent.png" class="circle responsive-img" width="500" height="500"></center>
 </body>
 </html>
