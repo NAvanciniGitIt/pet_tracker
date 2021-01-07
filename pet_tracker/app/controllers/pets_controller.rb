@@ -1,4 +1,3 @@
-require 'date'
 class PetsController < ApplicationController
 
   get '/pet' do
