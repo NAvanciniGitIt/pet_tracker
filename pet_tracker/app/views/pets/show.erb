@@ -7,7 +7,10 @@
 <p>Age: <%= @pet.age %></p> 
 <p>Breed: <%= @pet.breed %></p>
 <p>Weight: <%= @pet.weight %></p> 
-
+<p>Pet Bio: <%= @pet.bio %></p>
+<p>Vet Name: <%= @pet.vetname %></p>
+<p>Vet Phone Number: <%= @pet.vetnumber %></p>
+<p>Vet Address: <%= @pet.vetaddress %></p>
 <form action="/pet/<%= @pet.id %>" method="post">
   <a href="/pet/<%= @pet.id %>/edit" class="btn-small">Edit</a>  
   <input type="hidden" name="_method" value="delete">
