@@ -18,12 +18,18 @@ ActiveRecord::Schema.define(version: 20210105213509) do
     t.date     "age"
     t.string   "breed"
     t.integer  "weight"
+    t.string   "bio"
+    t.string   "vetname"
+    t.string   "vetaddress"
+    t.integer  "vetnumber"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
   end
 
   create_table "users", force: :cascade do |t|
+    t.string   "name"
+    t.string   "lastname"
     t.string   "username"
     t.date     "birthday"
     t.string   "email"
