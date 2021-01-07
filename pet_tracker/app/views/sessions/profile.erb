@@ -1,0 +1,26 @@
+<form action="/profile/<%= @current_user.id %>" method="post">
+
+<h3><%= @current_user.name %> <%= @current_user.lastname %></h3>
+  <p>Birth Date: <%= @current_user.birthday%></p> 
+  <% now = Date.today.to_date %>
+    <% before = @current_user.birthday.to_date %>
+      <% diff = (now - before).to_i %>
+        <% @current_user.birthday = (diff/365.25).to_i %>
+<p>Age: <%= @current_user.birthday %></p> 
+<p><%= @current_user.email %></p>
+<% if @current_user.pets.count == 0 %>
+<p><%= "You haven't added any pets!" %></p>
+<% else %>
+<p><%="You have #{@current_user.pets.count} pet(s)."%></p>
+<% end %>
+
+
+<form action="/profile/<%= @current_user.id %>" method="post">
+  <a href="/pet" class="btn-small pink-lighten-3">View Pets</a>  
+<form action="/profile/<%= @current_user.id %>" method="post">
+  <a href="/profile/<%= @current_user.id %>/edit" class="btn-small">Edit Profile</a>  
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete Account" class="btn-small red white-text">
+</form>
+
+</form>
