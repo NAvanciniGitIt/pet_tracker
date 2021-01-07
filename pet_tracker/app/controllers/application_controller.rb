@@ -1,5 +1,6 @@
 require './config/environment'
 require 'sinatra/flash'
+require 'date'
 class ApplicationController < Sinatra::Base
 
   configure do
@@ -13,21 +14,28 @@ class ApplicationController < Sinatra::Base
   get "/" do
     erb :welcome
   end
-    helpers do
+  
+  helpers do
+
+    def current_user
+        @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id] 
+    end
+
     def is_logged_in?
-      !!session[:user_id]#is there any user id?
+      !!current_user
     end
 
     def redirect_if_logged_in
-      redirect '/games' if is_logged_in?
+      redirect '/pet' if is_logged_in?
     end
 
     def redirect_if_not_logged_in
       redirect '/login' unless is_logged_in?
     end
 
-    def current_user
-      @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id] 
+    def redirect_if_not_user
+      @user = User.find_by_id(params[:id])
+      redirect '/' if @user != current_user
     end
   end
 end
