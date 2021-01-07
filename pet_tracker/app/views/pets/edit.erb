@@ -2,9 +2,9 @@
 
 <form action="/pet/<%= @pet.id %>" method="post">
   <input type="hidden" name="_method" value="patch">
-  <div class="input-field">
-          <input placeholder="Name" id="pet_name" name="pet[name]" type="text" class="validate" value="<%= @pet.name %>">
-          <label for="name">Pet Name</label>
+      <div class="input-field">
+      <input placeholder="Name" id="pet_name" name="pet[name]" type="text" class="validate" value="<%= @pet.name %>">
+        <label for="name">Pet Name</label>
         </div>
   <div class="input-field">
           <input type="date" class="text" name="pet[age]" value="<%=@pet.age %>">
@@ -17,6 +17,24 @@
   <div class="input-field">
           <input type="text" class="validate" name="pet[weight]" value="<%=@pet.weight %>">
           <label for="weight">Pet Weight</label>
+        </div>
+  <textarea class="form-control"
+style="height: calc(2.5em + 4.75rem + 2px);"
+      input type="text" class="validate" name="pet[bio]" value="<%=@pet.bio %>">
+  </textarea> 
+
+
+  <div class="input-field">
+          <input type="text" class="validate" name="pet[vetname]" value="<%=@pet.vetname %>">
+          <label for="weight">Vet Name</label>
+        </div>
+        <div class="input-field">
+          <input type="text" class="validate" name="pet[vetaddress]" value="<%=@pet.vetaddress %>">
+          <label for="weight">Vet Address</label>
+        </div>
+        <div class="input-field">
+          <input type="tel" class="validate" name="pet[vetnumber]" value="<%=@pet.vetnumber %>">
+          <label for="weight">Vet Phone Number </label>
         </div>
        
         <input type="submit" value="Update Pet" class="btn pink lighten-3">
