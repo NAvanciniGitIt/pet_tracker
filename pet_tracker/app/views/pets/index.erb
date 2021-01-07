@@ -1,11 +1,16 @@
-<h3><center>Your Pets!</center></h2> 
-
+<h3><center>Your Pets!</center></h2>
+<% if @pets.count == 0 %>
+<h5><%= "You haven't added any pets!" %></h5>
+<% else %>
 <h5><%="You have #{@pets.count} pet(s)."%></h5>
-
-<p>Recently Viewed: <%= @pet ? @pet.name : "Haven't viewed any pets." %></p>
-
+<% end %>
+<p>Recently Viewed: <%= @pet ? @pet.name : "You haven't viewed any pets." %></p>
+<table style="width:100%">
 <ul>
   <% @pets.each do |pet| %>
     <li><a href="/pet/<%= pet.id %>"><%= pet.name %></li>
   <% end %>
 </ul>
+
+</div>
+</table>
