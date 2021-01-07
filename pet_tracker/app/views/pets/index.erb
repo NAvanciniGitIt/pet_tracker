@@ -1,4 +1,6 @@
-<h3><center>Your Pets!</center></h2>
+<% if !!current_user %>
+<h3><center><%= "#{current_user.name}'s Pets!" %></center></h2>
+<% end %>
 <% if @pets.count == 0 %>
 <h5><%= "You haven't added any pets!" %></h5>
 <% else %>
@@ -11,6 +13,7 @@
     <li><a href="/pet/<%= pet.id %>"><%= pet.name %></li>
   <% end %>
 </ul>
-
+<form action="/pet/new<%=  %>" method="post">
+  <a href="/pet/new" class="btn-small pink lighten-3">Add Pet</a> 
 </div>
 </table>
