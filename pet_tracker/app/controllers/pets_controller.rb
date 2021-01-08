@@ -15,9 +15,9 @@ class PetsController < ApplicationController
   get '/pet/:id' do
     redirect_if_not_logged_in
       find_pet
+      redirect_if_pet_not_found
       redirect_if_not_owner
       session[:pet_id] = @pet.id if @pet
-      redirect_if_pet_not_found
     erb :'/pets/show'
   end
 
@@ -55,19 +55,5 @@ class PetsController < ApplicationController
     redirect_if_not_owner
     @pet.destroy if @pet
     redirect '/pet'
-  end
-
-  helpers do
-    def find_pet
-      @pet = Pet.find_by_id(params[:id])
-    end
-
-    def redirect_if_pet_not_found
-      redirect '/pet' unless @pet
-    end
-
-    def redirect_if_not_owner
-      redirect '/pet' unless @pet.user == current_user
-    end
   end
 end

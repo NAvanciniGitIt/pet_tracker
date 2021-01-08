@@ -38,5 +38,18 @@ class ApplicationController < Sinatra::Base
       redirect '/' if @user != current_user
     end
   end
-end
+
+  def find_pet
+    @pet = Pet.find_by_id(params[:id])
+  end
+
+  def redirect_if_pet_not_found
+    redirect '/pet' unless @pet
+  end
+
+  def redirect_if_not_owner
+    redirect '/pet' unless @pet.user == @current_user
+    end
+  end
+
 
