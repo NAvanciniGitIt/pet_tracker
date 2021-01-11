@@ -24,7 +24,7 @@ class SessionController < ApplicationController
     user = User.find_by_username(params[:user][:username].capitalize.gsub(" ",""))
     if user && user.authenticate(params[:user][:password]) #first ensure user exists, then authenticate
       session[:user_id] = user.id #log user in
-      redirect '/pet'
+      redirect '/profile'
     else
       redirect '/login'
   end
@@ -40,29 +40,12 @@ end
       erb :'sessions/profile'
   end
 
-  get '/profile/:id/edit' do
-    redirect_if_not_logged_in
-    redirect_if_not_user
-    erb :'sessions/edit'
-  end
-
-  patch '/profile/:id' do
-    !!current_user
-    redirect_if_not_user
-    redirect_if_not_logged_in
-    if @current_user.update(params[:user])
-      redirect "/profile/#{@current_user.id}"
-    else
-      redirect "/profile/#{@current_user.id}/edit"
-    end
-  end 
-
   delete '/profile/:id' do
-    !!current_user
-    redirect_if_not_user
-    redirect_if_not_logged_in
+    is_logged_in?
     @current_user.destroy if @current_user
     redirect '/'
+    redirect_if_not_user
+    redirect_if_not_logged_in
   end
   
   get '/logout' do

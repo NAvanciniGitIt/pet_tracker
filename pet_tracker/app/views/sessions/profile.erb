@@ -16,9 +16,7 @@
 
 
 <form action="/profile/<%= @current_user.id %>" method="post">
-  <a href="/pet" class="btn-small pink-lighten-3">View Pets</a>  
-<form action="/profile/<%= @current_user.id %>" method="post">
-  <a href="/profile/<%= @current_user.id %>/edit" class="btn-small">Edit Profile</a>  
+  <a href="/pet" class="btn-small pink-lighten-3">View Pets</a>   
   <input type="hidden" name="_method" value="delete">
   <input type="submit" value="Delete Account" class="btn-small red white-text">
 </form>

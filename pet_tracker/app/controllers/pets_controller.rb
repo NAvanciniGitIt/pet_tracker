@@ -34,7 +34,6 @@ class PetsController < ApplicationController
     if pet.save
       redirect '/pet'
     else
-      flash[:errors] = pet.errors.full_messages
       redirect '/pet/new' 
     end
   end
@@ -51,9 +50,9 @@ class PetsController < ApplicationController
 
   delete '/pet/:id' do
     find_pet
-    redirect_if_pet_not_found
-    redirect_if_not_owner
     @pet.destroy if @pet
     redirect '/pet'
+    redirect_if_pet_not_found
+    redirect_if_not_owner
   end
 end
